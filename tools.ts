@@ -1,10 +1,12 @@
 import * as z from "zod";
 import { oauth2Client } from "./server";
-import tokens from "./tokens.json";
 import { google } from "googleapis";
 import { tool } from "langchain";
 
-oauth2Client.setCredentials(tokens);
+oauth2Client.setCredentials({
+    access_token: process.env.GOOGLE_ACCESS_TOKEN,
+    refresh_token: process.env.GOOGLE_REFRESH_TOKEN,
+});
 
 const calendar = google.calendar({ version: "v3", auth: oauth2Client });
 
