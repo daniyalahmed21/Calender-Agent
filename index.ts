@@ -1,23 +1,15 @@
-import { ChatGroq } from "@langchain/groq";
-import { createEventTool, getEventsTool } from "./tools";
+import { app } from "./graph";
 
-const tools = [createEventTool, getEventsTool];
-
-const llm = new ChatGroq({
-  model: "llama-3.3-70b-versatile",
-  temperature: 0,
-}).bindTools(tools);
-
-llm
-  .invoke([
-    {
-      role: "user",
-      content: "What is the capital of France?",
-    },
-  ])
-  .then((response) => {
-    console.log("Response:", response);
-  })
-  .catch((error) => {
-    console.error("Error:", error);
+async function main() {
+  const result = await app.invoke({
+    messages: [
+      {
+        role: "user",
+        content: "Hi",
+      },
+    ],
   });
+  console.log("Final Response:", result.messages.at(-1)?.content);
+}
+
+main();
