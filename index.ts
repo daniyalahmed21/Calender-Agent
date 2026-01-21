@@ -5,7 +5,7 @@ async function main() {
     messages: [
       {
         role: "user",
-        content: "Hi",
+        content: "Do I have any events scheduled for tomorrow?",
       },
     ],
   });
