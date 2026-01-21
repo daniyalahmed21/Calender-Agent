@@ -10,6 +10,10 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "@langchain/groq": "^1.0.3"
+    "@langchain/core": "^1.1.16",
+    "@langchain/groq": "^1.0.3",
+    "@langchain/langgraph": "^1.1.1",
+    "langchain": "^1.2.11",
+    "zod": "^4.3.5"
   }
 }
